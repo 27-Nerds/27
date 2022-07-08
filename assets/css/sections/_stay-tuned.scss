@@ -1,0 +1,26 @@
+.stay-tuned {
+  padding-top: 350px;
+  padding-bottom: 210px;
+  background-image: url(../images/background_stay_with_us.jpg);
+  background-repeat: repeat-x;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.form-stay-tuned {
+  .form-content {
+    display: grid;
+    grid-template-columns: 150px calc(100% - 150px - #{$gap});
+    grid-gap: $gap;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: $gap;
+    width: 100%;
+  }
+  .form-footer {
+    display: grid;
+    grid-template-columns: calc(100% - 255px - #{$gap}) 255px;
+    grid-gap: $gap;
+    width: 100%;
+  }
+}

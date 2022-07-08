@@ -1,0 +1,27 @@
+.we-work-with {
+  padding-top: $section-padding;
+  padding-bottom: $section-padding;
+}
+
+.logos-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.logos-list-item {
+  cursor: default;
+  text-decoration: none;
+  img {
+    height: 70px;
+  }
+}

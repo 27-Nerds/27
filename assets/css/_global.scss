@@ -1,0 +1,135 @@
+* {
+	outline: 0;
+	box-sizing: border-box;
+	word-wrap: break-word;
+	line-height: 1.2;
+}
+
+html {
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	background-color: #000;
+	color: #505050;
+	padding: 0;
+	margin: 0;
+	font-weight: 400;
+}
+body {
+	font-family: inherit;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	cursor: $cursor-button;
+}
+.layout {
+	overflow: hidden;
+}
+img {
+	max-width: 100%;
+}
+
+.relative {
+	position: relative;
+}
+.inline-block {
+	display: inline-block;
+	vertical-align: top;
+}
+::-moz-selection {
+	color: #fff;
+	background: rgba($color-secondary, 0.3);
+}
+::selection {
+	color: #fff;
+	background: rgba($color-secondary, 0.3);
+}
+
+h2 {
+	font-family: 'Space Grotesk', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 83px;
+	line-height: 106px;
+	color: $color-text;
+	padding: 0;
+	margin: 0 0 70px 0;
+}
+
+.container {
+	width: 1540px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.svg-sprite {
+	display: none;
+}
+.icon {
+	display: block;
+	svg {
+		display: block;
+		padding: 0;
+		margin: 0;
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+p {
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.full-width {
+	width: 100%;
+}
+
+a {
+	cursor: $cursor-button;
+	text-decoration: none;
+}
+.row-with-2-columns {
+	display: grid;
+	grid-template-columns: calc(50% - #{$gap} / 2 ) calc(50% - #{$gap} / 2);
+	grid-gap: $gap;
+}
+
+@keyframes logo-glitched {
+	0% {
+		transform: translateX(300px);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+.logo-glitched {
+	position: absolute;
+	right: 0;
+	bottom: $gap;
+	width: 100%;
+	transform: translateX(300px);
+	animation-name: logo-glitched;
+	animation-timing-function: linear;
+	animation-duration: 8.8s;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	text-align: right;
+	will-change: transform;
+	.icon {
+		display: inline-block;
+		vertical-align: top;
+		width: 300px;
+		height: 33px;
+	}
+}
+
+.index-0 {
+	z-index: 0;
+}
+.index-1 {
+	z-index: 1;
+}
+.index-2 {
+	z-index: 2;
+}

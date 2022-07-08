@@ -1,0 +1,82 @@
+.esports-section {
+  background-image: url(../images/backgrounds/esports_background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 200vh;
+  overflow: hidden;
+  position: relative;
+  .container {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    position: relative;
+  }
+}
+.esports-text {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 84px;
+  color: $color-text;
+}
+.esports-words {
+  position: relative;
+  width: calc(234px + 20px);
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 -10px 0 10px;
+}
+.esports-word {
+  position: absolute;
+  left: -10px;
+  top: -5px;
+  width: 100%;
+  height: 87px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6969FB;
+}
+
+// Esports words
+
+.esports-word-1 {
+  background-color: #B8D15E;
+  color: #F25917;
+}
+.esports-word-2 {
+  background-color: #EBD131;
+  color: #F25917;
+}
+.esports-word-3 {
+  background-color: #258E87;
+  color: #F28017;
+}
+.esports-word-4 {
+
+}
+
+// Esports words END
+
+// Esports images
+
+.esports-images {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// Esports images END

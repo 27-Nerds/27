@@ -1,0 +1,30 @@
+.text-input {
+  input, textarea {
+    display: block;
+    border: 2px solid $color-static;
+    height: 70px;
+    width: 100%;
+    padding: 0 32px;
+    margin: 0;
+    background-color: transparent;
+
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: $color-static;
+    cursor: $cursor-text-input;
+    max-width: 100%;
+    &::placeholder {
+      color: $color-static;
+    }
+  }
+}
+.text-input {
+  textarea {
+    font-family: "Inter", sans-serif;
+    //height: 294px;
+    height: 188px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+}

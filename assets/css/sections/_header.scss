@@ -1,0 +1,127 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 27;
+  a {
+    color: $color-static;
+  }
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo-svg {
+  height: 30px;
+  width: 43px;
+  overflow: visible;
+}
+.logo-glasses {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: transform $transition-duration * 3 $transition-timing-function, opacity $transition-duration * 3 $transition-timing-function;
+}
+.logo {
+  &:hover, &:focus {
+    .logo-glasses {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+
+.main-links {
+  list-style: none;
+  //display: block;
+  display: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0 75px 0 0;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  a {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $color-static;
+    position: relative;
+    padding: 4px 5px 6px 5px;
+    overflow: hidden;
+    display: block;
+    transition: color $transition-duration $transition-timing-function;
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: calc(100% + 1px);
+      top: calc(100% - 2px);
+      left: -1px;
+      transform: translateX(-100%);
+    }
+    &:before {
+      background-color: $color-secondary;
+      transition: transform $transition-duration $transition-timing-function;
+    }
+    &:after {
+      background-color: $color-primary;
+      transition-delay: $transition-duration;
+      transition: transform $transition-duration $transition-timing-function;
+    }
+    &:hover, &:focus {
+      color: $color-primary;
+      &:before {
+        transform: translateX(100%);
+      }
+      &:after {
+        transform: translateX(0%);
+        transition-delay: $transition-duration;
+      }
+    }
+  }
+}
+
+.social-links {
+  list-style: none;
+  //display: block;
+  display: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0 20px 0 0;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  .icon {
+    display: block;
+    width: 30px;
+    height: 28px;
+  }
+  a {
+    transition: color $transition-duration $transition-timing-function;
+    &:hover {
+      color: $color-primary;
+    }
+    &:focus {
+      color: $color-primary;
+    }
+    &:active {
+      color: $color-static;
+    }
+  }
+}

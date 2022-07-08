@@ -1,0 +1,66 @@
+.vacancies {
+  background-color: $color-pink-active;
+  overflow: hidden;
+  .container {
+    padding: 48px 0 48px 166px;
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -300px;
+      height: 100%;
+      width: 1160px;
+      background-image: url(../images/old_computer.png);
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+  .button-wrap {
+    width: 517px;
+  }
+}
+.promo-title {
+  white-space: nowrap;
+  position: relative;
+  h2 {
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 83px;
+    line-height: 108px;
+    color: #000;
+    text-indent: calc(208px + 14px);
+  }
+}
+
+.list-flames {
+  padding: 0;
+  margin: 21px 0 0 0;
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+  color: #FA00FF;
+  position: absolute;
+  left: 0;
+  top: 0;
+  user-select: none;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    margin: 0 14px 0 0;
+    width: auto;
+    &:last-child {
+      margin-right: 0;
+    }
+    .icon {
+      width: 57px;
+      height: 70px;
+    }
+  }
+}

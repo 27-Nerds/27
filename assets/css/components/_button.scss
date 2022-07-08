@@ -1,0 +1,82 @@
+.button-primary {
+  background: $color-static;
+  color: #000;
+  font-weight: 500;
+  font-size: 28px;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 30px;
+  height: 70px;
+  line-height: 70px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: $cursor-button;
+  border: 2px solid transparent;
+  &:hover {
+
+  }
+  &:focus {
+
+  }
+  &:active {
+
+  }
+}
+
+.button-secondary {
+  background: #0C000B;
+  color: $color-secondary;
+  font-weight: 500;
+  font-size: 28px;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 30px;
+  height: 70px;
+  line-height: 70px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: $cursor-button;
+  border: 2px solid transparent;
+  &:hover {
+
+  }
+  &:focus {
+
+  }
+  &:active {
+
+  }
+}
+
+
+.button-attach {
+  background: none;
+  color: $color-static;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  cursor: $cursor-button;
+  transition: color $transition-duration $transition-timing-function;
+  input {
+    display: none;
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  }
+  .icon {
+    display: block;
+    height: 28px;
+    width: 14px;
+  }
+  &:hover, &:focus {
+    color: $color-primary;
+  }
+  &:active {
+    color: $color-static;
+  }
+}
