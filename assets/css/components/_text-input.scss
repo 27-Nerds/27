@@ -14,8 +14,15 @@
     color: $color-static;
     cursor: $cursor-text-input;
     max-width: 100%;
+    transition: border-color $transition-duration $transition-timing-function;
     &::placeholder {
       color: $color-static;
+    }
+    &:focus {
+      border-color: $color-pink-active;
+      &::placeholder {
+        color: #5A5A5A;
+      }
     }
   }
 }
@@ -28,3 +35,21 @@
     padding-bottom: 22px;
   }
 }
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-mobile) {
+  .text-input input, .text-input textarea {
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .text-input input {
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+// Responsiveness END

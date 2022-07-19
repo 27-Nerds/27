@@ -1,10 +1,9 @@
 // Colors
+$color-static: #0DB7A2;
 $color-primary: #1BDFCB;
 $color-secondary: #D69AF5;
 $color-text: #45FFEC;
 $color-pink-active: #E8BDFF;
-
-$color-static: #0DB7A2;
 
 
 // Animations
@@ -18,3 +17,8 @@ $section-padding: 90px;
 // Cursors
 $cursor-button: url(../images/icons/cursor.svg), auto;
 $cursor-text-input: url(../images/icons/cursor.svg), auto;
+
+// Responsiveness
+$screen-laptop: 1619px;
+$screen-tablet: 1199px;
+$screen-mobile: 520px;

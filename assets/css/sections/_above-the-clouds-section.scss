@@ -52,11 +52,37 @@
     width: 30px;
     display: inline-block;
     vertical-align: top;
+
+    animation-name: scroll-down-icon;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-direction: normal;
+    animation-fill-mode: none;
   }
 }
 
-.animated-elements {
-  zoom: 0.9;
+@keyframes scroll-down-icon {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+//.animated-elements {
+//  //zoom: 0.9;
+//  zoom: 1;
+//}
+
+.zoom-elements {
+  transform-origin: center;
 }
 
 // Parallax elements base
@@ -71,6 +97,9 @@
 .rabbit {
   width: 47px;
   height: 66px;
+  .icon {
+    height: 100%;
+  }
 }
 .coin {
   width: 59px;

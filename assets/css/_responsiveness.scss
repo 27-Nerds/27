@@ -1,0 +1,36 @@
+.tablet-and-less {
+  display: none;
+}
+
+@media screen and (max-width: $screen-laptop) {
+  .container {
+    width: 1154px;
+  }
+  h2 {
+    font-size: 72px;
+    line-height: 87px;
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .container {
+    width: calc(100% - 15px - 15px);
+  }
+  h2 {
+    font-size: 72px;
+    line-height: 87px;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  h2 {
+    font-size: 48px;
+    line-height: 58px;
+  }
+  .logo-glitched {
+    .icon {
+      width: 222px;
+      height: 24px;
+    }
+  }
+}

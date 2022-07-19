@@ -3,7 +3,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 200vh;
+  //height: 200vh;
+  height: 2160px;
   overflow: hidden;
   position: relative;
   .container {
@@ -71,12 +72,71 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  //position: relative;
   li {
-    display: inline-block;
-    vertical-align: top;
+    display: block;
     padding: 0;
     margin: 0;
+    position: absolute;
   }
 }
 
 // Esports images END
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .esports-text {
+    font-size: 52px;
+    line-height: 84px;
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .esports-images {
+    li {
+      &:not(.keep-on-tablet) {
+        display: none;
+      }
+    }
+  }
+  .esports-text {
+    font-size: 52px;
+    line-height: 84px;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .esports-images {
+    display: none;
+  }
+  .esports-word:not(.esports-word-4) {
+    display: none;
+  }
+  .esports-words {
+    width: auto;
+    margin: 0;
+  }
+  .esports-word-4 {
+    position: static;
+    padding: 3px 7px;
+    height: auto;
+    width: auto;
+  }
+  .esports-text {
+    font-size: 32px;
+    line-height: 58px;
+  }
+  .esports-section {
+    height: auto;
+  }
+  .esports-section .container {
+    height: auto;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+}
+
+// Responsiveness END

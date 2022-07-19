@@ -28,13 +28,14 @@
 
 .form-contact-us {
   .form-footer {
-    display: grid;
-    grid-template-columns: calc(100% - 255px - 24px) 255px;
-    grid-gap: 24px;
+    display: block;
     margin-top: $gap;
-    align-items: center;
-    justify-content: center;
     text-align: right;
+    .button-wrap {
+      display: inline-block;
+      vertical-align: top;
+      width: 255px;
+    }
   }
   .row {
     &:not(:last-of-type) {
@@ -47,16 +48,144 @@
 .contact-us-section {
   position: relative;
   background-image: url(../images/background_stay_with_us.jpg);
-  background-repeat: repeat-x;
   background-position: bottom center;
-  height: 1072px;
+  align-items: flex-start;
+  //height: 1072px;
+  height: 1200px;
   &:before {
     content: '';
     display: block;
     position: absolute;
     left: 0;
     top: 0;
-    background: linear-gradient(180deg, rgba(0, 5, 7, 0) 0%, #0C000B 100%);
-    transform: rotate(-180deg);
+    height: 200px;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+  .container {
+    margin-top: 400px;
   }
 }
+
+
+.rabbits-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  .rabbit {
+    pointer-events: all;
+  }
+}
+
+// Contact rabbits
+
+.contact-rabbit-1 {
+  left: calc(50% - 520px);
+  top: calc(400px - 66px);
+}
+.contact-rabbit-2 {
+  left: calc(50% - 430px);
+  top: calc(410px - 66px);
+  transform: rotate(90deg);
+}
+.contact-rabbit-3 {
+  left: calc(50% - 400px);
+  top: calc(280px - 66px);
+  transform: rotate(-17deg);
+}
+.contact-rabbit-4 {
+  left: calc(50% - 200px);
+  top: calc(350px - 66px);
+  transform: rotate(-32deg);
+}
+.contact-rabbit-5 {
+  left: calc(50% - 100px);
+  top: calc(210px - 66px);
+  transform: rotate(24deg);
+}
+.contact-rabbit-6 {
+  left: calc(50% + 50px);
+  top: calc(410px - 66px);
+  transform: rotate(-90deg);
+}
+.contact-rabbit-7 {
+  left: calc(50% + 80px);
+  top: calc(353px - 66px);
+  transform: rotate(16deg);
+}
+.contact-rabbit-8 {
+  left: calc(50% + 123px);
+  top: calc(400px - 66px);
+}
+.contact-rabbit-9 {
+  left: calc(50% + 150px);
+  top: calc(150px - 66px);
+  transform: rotate(24deg);
+}
+.contact-rabbit-10 {
+  left: calc(50% + 330px);
+  top: calc(410px - 66px);
+  transform: rotate(90deg);
+}
+
+// Contact rabbits END
+
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .contact-us-section {
+    .form {
+      width: 918px;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .contact-us-section {
+    height: auto;
+    .container {
+      margin-top: 210px;
+    }
+    .form {
+      width: calc(100% - 15px - 15px);
+    }
+  }
+  .rabbits-wrap {
+    .rabbit {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .contact-us-section {
+    .container {
+      margin-top: 210px;
+    }
+    .form {
+      width: 100%;
+    }
+  }
+  .row-with-2-columns {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: $gap / 2;
+  }
+  .form-contact-us .row:not(:last-of-type) {
+    margin-bottom: $gap / 2;
+  }
+  .form-contact-us .form-footer .button-wrap {
+    width: 100%;
+  }
+}
+
+// Responsiveness END

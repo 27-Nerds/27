@@ -12,13 +12,16 @@
   white-space: nowrap;
   li {
     padding: 0;
-    margin: 0 45px 0 0;
+    //margin: 0 45px 0 0;
+    margin: 0;
     display: inline-block;
     vertical-align: top;
   }
 }
 .board-list-item {
   display: block;
+  position: relative;
+  padding-bottom: 123px;
   &:hover, &:focus {
     .on-hover {
       opacity: 1;
@@ -26,8 +29,9 @@
   }
 }
 .board-list-item-image {
-  width: 428px;
+  //width: 428px;
   position: relative;
+  z-index: 1;
   img {
     display: block;
     width: 100%;
@@ -44,12 +48,27 @@
   }
 }
 .board-list-item-name {
-  font-weight: 500;
+  //font-weight: 500;
+  font-weight: 700;
   font-size: 36px;
   line-height: 42px;
-  color: $color-primary;
+  //color: $color-primary;
   padding: 0;
   margin: 40px 0 8px 0;
+
+  text-transform: uppercase;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $color-primary;
+  color: transparent;
+  font-family: "IBM Plex Sans", sans-serif;
+  position: absolute;
+  z-index: 1;
+  bottom: 32px; // 65px;
+  left: 10px;
+}
+.board-list-item-name--outlined {
+  color: $color-primary;
+  z-index: -1;
 }
 .board-list-item-position {
   font-style: normal;
@@ -57,4 +76,88 @@
   font-size: 28px;
   line-height: 32px;
   color: #fff;
+
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  z-index: 1;
 }
+
+.splide {
+  position: relative;
+}
+.splide__arrows {
+  user-select: none;
+  position: absolute;
+  right: 0;
+  top: -157px;
+}
+.splide__arrow {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  margin: 0;
+  //border: 0;
+  background-color: $color-static;
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+  justify-content: center;
+  cursor: $cursor-button;
+  border: 2px solid transparent;
+  transition: background-color $transition-duration $transition-timing-function, border-color $transition-duration $transition-timing-function;
+  &:disabled {
+    background-color: #5A5A5A;
+  }
+  &:hover {
+    background-color: $color-primary;
+  }
+  &:focus {
+    background-color: $color-primary;
+    border-color: $color-pink-active;
+  }
+  &:active {
+    background-color: $color-static;
+  }
+  .icon {
+    width: 21px;
+    height: 35px;
+  }
+}
+
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .board-list-item-name {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .board-list-item-position {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .board-list-item-name {
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 1px;
+  }
+  .board-list-item-position {
+    font-size: 18px;
+    line-height: 24px;
+    bottom: 10px;
+  }
+  .splide__arrows {
+    display: none;
+  }
+  .board-list-item {
+    padding-bottom: 90px;
+  }
+}
+
+// Responsiveness END

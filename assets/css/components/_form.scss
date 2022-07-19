@@ -67,3 +67,24 @@
   border: 2px solid $color-static;
   padding: 52px;
 }
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-tablet) {
+  .form-body {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .form-header h2 {
+    font-size: 24px;
+    line-height: 36px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+// Responsiveness END

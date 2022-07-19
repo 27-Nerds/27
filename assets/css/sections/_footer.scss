@@ -3,6 +3,9 @@
   background-repeat: repeat-x;
   background-position: top center;
   background-size: cover;
+  //overflow: hidden;
+  overflow: visible;
+  position: relative;
   .container {
     height: 280px + 66px;
     position: relative;
@@ -55,3 +58,148 @@
     }
   }
 }
+
+
+// Footer rabbits
+
+.footer-rabbit-1 {
+  left: 13px;
+  bottom: 50px;
+  transform: rotate(-45deg);
+}
+.footer-rabbit-2 {
+  left: 45px;
+  bottom: -8px;
+  transform: rotate(-90deg);
+}
+
+
+.footer-rabbit-3 {
+  left: -18px;
+  top: 9px;
+  transform: rotate(90deg);
+}
+
+
+.footer-rabbit-4 {
+  left: -320px;
+  bottom: -8px;
+  transform: rotate(-90deg);
+}
+.footer-rabbit-5 {
+  left: -272px;
+  bottom: 45px;
+  transform: rotate(16deg);
+}
+.footer-rabbit-6 {
+  left: -230px;
+  bottom: -8px;
+  transform: rotate(90deg);
+}
+.footer-rabbit-7 {
+  left: -167px;
+  bottom: 2px;
+  transform: rotate(-25deg);
+}
+.footer-rabbit-8 {
+  left: 230px;
+  bottom: 270px;
+  transform: rotate(-90deg);
+}
+.footer-rabbit-9 {
+  left: 370px;
+  bottom: 270px;
+  transform: rotate(-90deg);
+}
+.footer-rabbit-10 {
+  left: 435px;
+  bottom: 278px;
+  transform: rotate(0deg);
+}
+.footer-rabbit-11 {
+  left: 510px;
+  bottom: 270px;
+  transform: rotate(90deg);
+}
+.footer-rabbit-12 {
+  left: 657px;
+  bottom: 120px;
+  transform: rotate(-21deg);
+}
+.footer-rabbit-13 {
+  left: 712px;
+  bottom: 75px;
+  transform: rotate(-21deg);
+}
+.footer-rabbit-14 {
+  left: 703px;
+  bottom: 4px;
+  transform: rotate(-30deg);
+}
+.footer-rabbit-15 {
+  left: 772px;
+  bottom: 90px;
+  transform: rotate(90deg);
+}
+.footer-rabbit-16 {
+  left: 795px;
+  bottom: 41px;
+  transform: rotate(-90deg);
+}
+.footer-rabbit-17 {
+  left: 769px;
+  bottom: -8px;
+  transform: rotate(90deg);
+}
+.footer-rabbit-18 {
+  left: 839px;
+  bottom: -8px;
+  transform: rotate(-90deg);
+}
+
+// Footer rabbits END
+
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-tablet) {
+  .footer {
+    .container {
+      height: auto;
+    }
+    .rabbit {
+      display: none;
+    }
+  }
+  .list-social {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 75px;
+    li {
+      margin: 0;
+    }
+    a {
+      .icon {
+        width: 44px;
+        height: 41px;
+      }
+    }
+    span {
+      display: none;
+    }
+  }
+  .footer-logo {
+    position: static;
+    text-align: center;
+    height: auto;
+    img {
+      display: inline-block;
+      vertical-align: bottom;
+    }
+  }
+}
+
+// Responsiveness END

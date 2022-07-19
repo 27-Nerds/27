@@ -55,6 +55,7 @@
     padding: 0;
     margin: 0 14px 0 0;
     width: auto;
+    position: relative;
     &:last-child {
       margin-right: 0;
     }
@@ -64,3 +65,125 @@
     }
   }
 }
+
+// Flame Animation
+@keyframes flame-animate-1 {
+  0% {opacity: 0;}
+  25% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+@keyframes flame-animate-2 {
+  0% {opacity: 0;}
+  25% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes flame-animate-3 {
+  0% {opacity: 0;}
+  25% {opacity: 0;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.flame-animate {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+
+  animation-name: flame-animate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  //animation-play-state: running;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-duration: 2000ms;
+}
+
+.flame-animate-1 {
+  animation-name: flame-animate-1;
+  animation-delay: 0ms;
+}
+.flame-animate-2 {
+  animation-name: flame-animate-2;
+  //animation-delay: 500ms;
+}
+.flame-animate-3 {
+  animation-name: flame-animate-3;
+  //animation-delay: 1000ms;
+}
+
+
+// Flame Animation END
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .promo-title h2 {
+    font-size: 72px;
+    line-height: 94px;
+    text-indent: 200px;
+  }
+  .list-flames li .icon {
+    width: 48px;
+    height: 60px;
+  }
+  .vacancies .container {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .list-flames {
+    display: block;
+    position: static;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .promo-title h2 {
+    text-indent: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .vacancies .button-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 430px;
+  }
+  .vacancies .container:before {
+    top: 90px;
+    right: -160px;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .list-flames {
+    margin-bottom: 20px;
+  }
+  .list-flames li .icon {
+    width: 24px;
+    height: 30px;
+  }
+  .promo-title h2 {
+    font-size: 32px;
+    line-height: 39px;
+    margin-bottom: 50px;
+  }
+  .vacancies .button-wrap {
+    width: 100%;
+    margin-top: 200px;
+  }
+  .vacancies .container:before {
+    top: 50px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 390px;
+  }
+}
+
+// Responsiveness END

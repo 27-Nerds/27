@@ -22,18 +22,31 @@
   grid-gap: 20px;
   align-items: center;
   justify-content: center;
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 10px;
-    width: 100%;
-    left: 0;
-    top: calc(100% - 10px);
-    background-image: url(../images/icons/plus.svg);
-    background-repeat: repeat-x;
-  }
+  overflow: hidden;
+  //&:after {
+  //  content: '';
+  //  display: block;
+  //  position: absolute;
+  //  height: 10px;
+  //  width: 100%;
+  //  left: 0;
+  //  top: calc(100% - 10px);
+  //  background-image: url(../images/icons/plus.svg);
+  //  background-repeat: repeat-x;
+  //}
 }
+
+.services-list-item-border {
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 200vw;
+  left: -50vw;
+  top: calc(100% - 10px);
+  background-image: url(../images/icons/plus.svg);
+  background-repeat: repeat-x;
+}
+
 .services-list-item-title {
   align-self: self-start;
   width: 100%;
@@ -69,3 +82,75 @@
     margin: 0;
   }
 }
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .services-list-item-title .icon {
+    width: 36px;
+    height: 26px;
+  }
+  .services-list-item-title h3 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .services-list-item-text p {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .services-list-item {
+    position: relative;
+    grid-template-columns: 100%;
+    .tablet-and-less {
+      display: block;
+      width: 30px;
+      height: 18px;
+      position: absolute;
+      right: 15px;
+      top: 90px;
+      transition: transform $transition-duration $transition-timing-function;
+    }
+    &:hover, &:focus, &:active {
+      .tablet-and-less {
+        transform: rotate(180deg);
+      }
+      .services-list-item-text {
+        display: block;
+      }
+    }
+  }
+  .services-list-item-text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .services {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  .services-list-item-title {
+    h3 {
+      font-size: 28px;
+      line-height: 34px;
+      text-indent: 33px;
+    }
+    .icon {
+      width: 28px;
+      height: 20px;
+    }
+  }
+  .services-list-item {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    .tablet-and-less {
+      top: 60px;
+    }
+  }
+}
+
+// Responsiveness END

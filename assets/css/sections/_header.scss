@@ -7,6 +7,12 @@
   a {
     color: $color-static;
   }
+  &.show-mobile-nav {
+    .toggle-mobile-nav {
+      background-color: $color-primary;
+      color: #000;
+    }
+  }
 }
 .main-nav {
   display: flex;
@@ -49,11 +55,14 @@
       margin-right: 0;
     }
   }
+  .icon {
+    display: none;
+  }
   a {
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 22px;
+    line-height: 27px;
     color: $color-static;
     position: relative;
     padding: 4px 5px 6px 5px;
@@ -107,6 +116,9 @@
       margin-right: 0;
     }
   }
+  span {
+    display: none;
+  }
   .icon {
     display: block;
     width: 30px;
@@ -125,3 +137,111 @@
     }
   }
 }
+
+.toggle-mobile-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  border: 0;
+  background-color: transparent;
+  color: $color-primary;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  .icon {
+    width: 22px;
+    height: 24px;
+  }
+}
+
+
+// Responsiveness
+
+@media screen and (min-width: $screen-tablet + 1px) {
+  .toggle-mobile-nav {
+    display: none;
+  }
+  .header {
+    &.sticky {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 77px;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+        z-index: -1;
+        user-select: none;
+        pointer-events: none;
+      }
+      .main-links {
+        display: block;
+      }
+      .social-links {
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+
+
+@media screen and (max-width: $screen-tablet) {
+  .main-links, .social-links {
+    position: absolute;
+    right: 20px;
+    background-color: #000;
+    border: 2px solid $color-primary;
+    width: 240px;
+    display: none;
+    li {
+      display: block;
+      margin: 0;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      padding: 12px 24px;
+    }
+    .icon {
+      display: block;
+      width: 30px;
+      height: 28px;
+    }
+  }
+  .main-links {
+    top: 60px;
+    li {
+      &:last-of-type {
+        border-top: 2px solid $color-primary;
+      }
+    }
+  }
+  .social-links {
+    top: calc(217px + 60px - 2px);
+    span {
+      display: block;
+    }
+  }
+  
+  .show-mobile-nav {
+    .main-links, .social-links {
+      display: block;
+    }
+  }
+}
+
+// Responsiveness END

@@ -25,3 +25,39 @@
     height: 70px;
   }
 }
+
+
+
+
+// Responsiveness
+
+@media screen and (max-width: $screen-laptop) {
+  .logos-list li {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: $screen-tablet) {
+  .logos-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    grid-gap: $gap;
+    li {
+      transform: scale(1);
+    }
+  }
+  .we-work-with {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: $screen-mobile) {
+  .logos-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $gap / 2;
+  }
+}
+
+// Responsiveness END
