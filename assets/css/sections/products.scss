@@ -26,11 +26,13 @@
     margin: 0;
     &:nth-child(odd) {
       .portfolio-item {
+        cursor: $cursor-more-green;
         color: $color-primary;
       }
     }
     &:nth-child(even) {
       .portfolio-item {
+        cursor: $cursor-more-pink;
         color: $color-secondary;
       }
     }
@@ -43,11 +45,10 @@
   border-right: 4px solid currentColor;
   border-bottom: 4px solid currentColor;
   text-decoration: none;
-  cursor: $cursor-button;
+  //cursor: $cursor-button;
   transition: background-color $transition-duration $transition-timing-function;
   &:hover, &:focus {
     background-color: #171717;
-    cursor: pointer;
     .portfolio-item-overlay {
       opacity: 1;
     }
@@ -141,6 +142,7 @@
   .icon {
     width: 140px;
     height: 140px;
+    display: none;
   }
   .text {
     font-weight: 500;
@@ -152,6 +154,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    display: none;
   }
 }
 .portfolio-item-footer {
@@ -167,6 +170,7 @@
     line-height: 56px;
     padding: 0;
     margin: 0;
+    font-family: "Space Grotesk", sans-serif;
   }
 }
 

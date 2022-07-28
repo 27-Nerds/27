@@ -61,6 +61,7 @@
     background-color: $color-static;
     display: inline-block;
     vertical-align: top;
+    user-select: none;
   }
 }
 .form-body {

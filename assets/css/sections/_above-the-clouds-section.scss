@@ -14,7 +14,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #272727;
+  //color: #272727;
   padding: 0;
   margin: 0 auto;
   text-align: center;
@@ -23,6 +23,28 @@
   //left: 50%;
   //top: 20px;
   transform: translateY(20px);
+  font-family: 'Space Grotesk', sans-serif;
+  color: #6969FB;
+}
+
+
+@keyframes arrow-animate-1 {
+  0% {fill: transparent;}
+  25% {fill: $color-static;}
+  50% {fill: transparent;}
+  100% {fill: transparent;}
+}
+@keyframes arrow-animate-2 {
+  0% {fill: transparent;}
+  25% {fill: transparent;}
+  50% {fill: $color-static;}
+  100% {fill: transparent;}
+}
+@keyframes arrow-animate-3 {
+  0% {fill: transparent;}
+  25% {fill: transparent;}
+  50% {fill: transparent;}
+  100% {fill: $color-static;}
 }
 
 .scroll-down-wrap {
@@ -44,45 +66,50 @@
   font-size: 32px;
   line-height: 39px;
   text-align: center;
-  span {
+  margin-top: 20vh;
+  svg {
+    overflow: visible;
     display: block;
-  }
-  .icon {
-    height: 20px;
-    width: 30px;
-    display: inline-block;
-    vertical-align: top;
 
-    animation-name: scroll-down-icon;
-    animation-timing-function: ease-out;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-play-state: running;
-    animation-direction: normal;
-    animation-fill-mode: none;
+    &:nth-child(1) {
+      path {
+        animation-name: arrow-animate-1;
+        animation-delay: 0ms;
+      }
+    }
+    &:nth-child(2) {
+      path {
+        animation-name: arrow-animate-2;
+      }
+    }
+    &:nth-child(3) {
+      path {
+        animation-name: arrow-animate-3;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+    path {
+      overflow: visible;
+      stroke-width: 2px;
+      stroke: $color-static;
+      //fill: transparent;
+
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      //animation-play-state: running;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      animation-duration: 2000ms;
+    }
   }
 }
-
-@keyframes scroll-down-icon {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-
-//.animated-elements {
-//  //zoom: 0.9;
-//  zoom: 1;
-//}
 
 .zoom-elements {
   transform-origin: center;
+  position: relative;
 }
 
 // Parallax elements base

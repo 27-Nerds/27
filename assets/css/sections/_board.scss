@@ -60,7 +60,7 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: $color-primary;
   color: transparent;
-  font-family: "IBM Plex Sans", sans-serif;
+  //font-family: "IBM Plex Sans", sans-serif;
   position: absolute;
   z-index: 1;
   bottom: 32px; // 65px;
@@ -106,9 +106,6 @@
   cursor: $cursor-button;
   border: 2px solid transparent;
   transition: background-color $transition-duration $transition-timing-function, border-color $transition-duration $transition-timing-function;
-  &:disabled {
-    background-color: #5A5A5A;
-  }
   &:hover {
     background-color: $color-primary;
   }
@@ -118,6 +115,9 @@
   }
   &:active {
     background-color: $color-static;
+  }
+  &:disabled {
+    background-color: #5A5A5A;
   }
   .icon {
     width: 21px;

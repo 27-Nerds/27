@@ -5,10 +5,11 @@
   background-size: cover;
   //overflow: hidden;
   overflow: visible;
-  position: relative;
+  //position: relative;
+  font-family: "Space Grotesk", sans-serif;
   .container {
     height: 280px + 66px;
-    position: relative;
+    //position: relative;
   }
 }
 
@@ -26,7 +27,9 @@
 
 .list-social {
   list-style: none;
-  display: block;
+  //display: block;
+  display: inline-block;
+  vertical-align: top;
   padding: 66px 0 0 0;
   margin: 0;
   li {

@@ -2950,7 +2950,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: transparent;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
 }
 
 .layout {
@@ -3021,7 +3021,7 @@ p:last-of-type {
 }
 
 a {
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   text-decoration: none;
 }
 
@@ -3139,6 +3139,7 @@ a {
   background-color: #0DB7A2;
   display: inline-block;
   vertical-align: top;
+  user-select: none;
 }
 
 .form-body {
@@ -3171,7 +3172,7 @@ a {
   font-size: 28px;
   line-height: 34px;
   color: #0DB7A2;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   max-width: 100%;
   transition: border-color 270ms ease;
 }
@@ -3218,9 +3219,10 @@ a {
   line-height: 70px;
   text-transform: uppercase;
   text-align: center;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   border: 2px solid transparent;
   transition: background-color 270ms ease, border-color 270ms ease;
+  user-select: none;
 }
 .button-primary:hover {
   background-color: #1BDFCB;
@@ -3247,9 +3249,10 @@ a {
   line-height: 70px;
   text-transform: uppercase;
   text-align: center;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   border: 2px solid transparent;
   transition: background-color 270ms ease, border-color 270ms ease;
+  user-select: none;
 }
 .button-secondary:hover {
   color: #E8BDFF;
@@ -3269,8 +3272,9 @@ a {
   display: inline-block;
   vertical-align: top;
   padding: 10px;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   transition: color 270ms ease;
+  user-select: none;
 }
 .button-attach input {
   display: none;
@@ -3297,6 +3301,31 @@ a {
     font-size: 18px;
   }
 }
+.rabbits-area {
+  position: relative;
+}
+.rabbits-area .rabbit {
+  display: none;
+}
+.rabbits-area > div {
+  z-index: 1;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  opacity: 0.5;
+  height: 300px;
+  width: 300px;
+  pointer-events: none;
+}
+
+#debug {
+  position: absolute;
+}
+
 .above-the-clouds-section {
   background-image: url(../images/backgrounds/above_the_clouds_background.jpg);
   background-size: cover;
@@ -3311,14 +3340,57 @@ a {
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #272727;
   padding: 0;
   margin: 0 auto;
   text-align: center;
   width: 140px;
   transform: translateY(20px);
+  font-family: "Space Grotesk", sans-serif;
+  color: #6969FB;
 }
 
+@keyframes arrow-animate-1 {
+  0% {
+    fill: transparent;
+  }
+  25% {
+    fill: #0DB7A2;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+@keyframes arrow-animate-2 {
+  0% {
+    fill: transparent;
+  }
+  25% {
+    fill: transparent;
+  }
+  50% {
+    fill: #0DB7A2;
+  }
+  100% {
+    fill: transparent;
+  }
+}
+@keyframes arrow-animate-3 {
+  0% {
+    fill: transparent;
+  }
+  25% {
+    fill: transparent;
+  }
+  50% {
+    fill: transparent;
+  }
+  100% {
+    fill: #0DB7A2;
+  }
+}
 .scroll-down-wrap {
   display: flex;
   align-items: center;
@@ -3339,37 +3411,39 @@ a {
   font-size: 32px;
   line-height: 39px;
   text-align: center;
+  margin-top: 20vh;
 }
-.scroll-down span {
+.scroll-down svg {
+  overflow: visible;
   display: block;
 }
-.scroll-down .icon {
-  height: 20px;
-  width: 30px;
-  display: inline-block;
-  vertical-align: top;
-  animation-name: scroll-down-icon;
-  animation-timing-function: ease-out;
-  animation-duration: 2s;
+.scroll-down svg:nth-child(1) path {
+  animation-name: arrow-animate-1;
+  animation-delay: 0ms;
+}
+.scroll-down svg:nth-child(2) path {
+  animation-name: arrow-animate-2;
+}
+.scroll-down svg:nth-child(3) path {
+  animation-name: arrow-animate-3;
+}
+.scroll-down svg:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+.scroll-down svg path {
+  overflow: visible;
+  stroke-width: 2px;
+  stroke: #0DB7A2;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-play-state: running;
   animation-direction: normal;
   animation-fill-mode: none;
+  animation-duration: 2000ms;
 }
 
-@keyframes scroll-down-icon {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
 .zoom-elements {
   transform-origin: center;
+  position: relative;
 }
 
 .cloud, .snake, .rabbit, .coin {
@@ -3761,6 +3835,7 @@ a {
   top: 0;
   width: 100%;
   z-index: 27;
+  font-family: "Space Grotesk", sans-serif;
 }
 .header a {
   color: #0DB7A2;
@@ -4041,6 +4116,7 @@ a {
   margin: 0;
   word-break: break-word;
   text-indent: 53px;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .services-list-item-text p {
@@ -4139,9 +4215,11 @@ a {
   margin: 0;
 }
 .list-portfolio li:nth-child(odd) .portfolio-item {
+  cursor: url(../images/icons/cursors/cursor_more_green.svg), auto;
   color: #1BDFCB;
 }
 .list-portfolio li:nth-child(even) .portfolio-item {
+  cursor: url(../images/icons/cursors/cursor_more_pink.svg), auto;
   color: #D69AF5;
 }
 
@@ -4152,12 +4230,10 @@ a {
   border-right: 4px solid currentColor;
   border-bottom: 4px solid currentColor;
   text-decoration: none;
-  cursor: url(../images/icons/cursor.svg), auto;
   transition: background-color 270ms ease;
 }
 .portfolio-item:hover, .portfolio-item:focus {
   background-color: #171717;
-  cursor: pointer;
 }
 .portfolio-item:hover .portfolio-item-overlay, .portfolio-item:focus .portfolio-item-overlay {
   opacity: 1;
@@ -4254,6 +4330,7 @@ a {
 .portfolio-item-overlay .icon {
   width: 140px;
   height: 140px;
+  display: none;
 }
 .portfolio-item-overlay .text {
   font-weight: 500;
@@ -4265,6 +4342,7 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
+  display: none;
 }
 
 .portfolio-item-footer {
@@ -4281,6 +4359,7 @@ a {
   line-height: 56px;
   padding: 0;
   margin: 0;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 @media screen and (max-width: 1619px) {
@@ -4409,7 +4488,6 @@ a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #1BDFCB;
   color: transparent;
-  font-family: "IBM Plex Sans", sans-serif;
   position: absolute;
   z-index: 1;
   bottom: 32px;
@@ -4454,12 +4532,9 @@ a {
   vertical-align: top;
   align-items: center;
   justify-content: center;
-  cursor: url(../images/icons/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
   border: 2px solid transparent;
   transition: background-color 270ms ease, border-color 270ms ease;
-}
-.splide__arrow:disabled {
-  background-color: #5A5A5A;
 }
 .splide__arrow:hover {
   background-color: #1BDFCB;
@@ -4470,6 +4545,9 @@ a {
 }
 .splide__arrow:active {
   background-color: #0DB7A2;
+}
+.splide__arrow:disabled {
+  background-color: #5A5A5A;
 }
 .splide__arrow .icon {
   width: 21px;
@@ -4536,7 +4614,7 @@ a {
 .promo-title h2 {
   display: inline-block;
   vertical-align: top;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 83px;
@@ -4788,11 +4866,10 @@ a {
   background-position: top center;
   background-size: cover;
   overflow: visible;
-  position: relative;
+  font-family: "Space Grotesk", sans-serif;
 }
 .footer .container {
   height: 346px;
-  position: relative;
 }
 
 .footer-logo {
@@ -4809,7 +4886,8 @@ a {
 
 .list-social {
   list-style: none;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   padding: 66px 0 0 0;
   margin: 0;
 }

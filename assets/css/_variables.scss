@@ -15,8 +15,10 @@ $gap: 48px;
 $section-padding: 90px;
 
 // Cursors
-$cursor-button: url(../images/icons/cursor.svg), auto;
-$cursor-text-input: url(../images/icons/cursor.svg), auto;
+$cursor-button: url(../images/icons/cursors/cursor.svg), auto;
+$cursor-more-pink: url(../images/icons/cursors/cursor_more_pink.svg), auto;
+$cursor-more-green: url(../images/icons/cursors/cursor_more_green.svg), auto;
+$cursor-text-input: url(../images/icons/cursors/cursor.svg), auto;
 
 // Responsiveness
 $screen-laptop: 1619px;
