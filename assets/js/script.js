@@ -513,10 +513,15 @@ World.prototype.addFlor = function () {
 
 	formDom = document.querySelector('.form-contact-us');
 
-	let formWidth = formDom.offsetWidth / viewportDom.offsetWidth * 100 + (100 * this.zoom);
-	let formHeight = formDom.offsetHeight / viewportDom.offsetHeight * (100 + (100 * this.zoom));
-	let formLeft = 50;
-	let formTop = (formDom.offsetTop + formDom.offsetHeight / 2) / viewportDom.offsetHeight * (100 + (100 * this.zoom));
+
+	let formWidth = formDom.offsetWidth * this.zoom;
+	let formHeight = formDom.offsetHeight * this.zoom;
+	let formLeft = this.innerSizeX / 2;
+	console.log('this.innerSizeX ', this.innerSizeX / 2);
+	// let formTop = (formDom.offsetTop + formDom.offsetHeight / 2) / viewportDom.offsetHeight * 100;
+	let formTop = 50;
+
+	// debugger;
 
 	var form = Matter.Bodies.rectangle(formLeft, formTop, formWidth, formHeight, {
 		isStatic: true,
@@ -528,10 +533,10 @@ World.prototype.addFlor = function () {
 
 	socialLinksDom = document.querySelector('.list-social');
 
-	let socialLinksWidth = socialLinksDom.offsetWidth / viewportDom.offsetWidth * 100 + (100 * this.zoom);
-	let socialLinksHeight = socialLinksDom.offsetHeight / viewportDom.offsetHeight * 100;
+	let socialLinksWidth = socialLinksDom.offsetWidth * this.zoom;
+	let socialLinksHeight = socialLinksDom.offsetHeight * this.zoom;
 	let socialLinksLeft = 5;
-	let socialLinksTop = (socialLinksDom.offsetTop + socialLinksDom.offsetHeight / 2) / viewportDom.offsetHeight * 100;
+	let socialLinksTop = (socialLinksDom.offsetTop + socialLinksDom.offsetHeight / 2) / viewportDom.offsetHeight * (100 + (100 * this.zoom));
 
 	console.log('socialLinksDom.offsetTop: ', socialLinksDom.offsetTop);
 
