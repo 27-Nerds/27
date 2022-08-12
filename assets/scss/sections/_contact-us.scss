@@ -178,10 +178,10 @@
   .row-with-2-columns {
     display: grid;
     grid-template-columns: 100%;
-    grid-gap: $gap / 2;
+    grid-gap: calc(#{$gap} / 2);
   }
   .form-contact-us .row:not(:last-of-type) {
-    margin-bottom: $gap / 2;
+    margin-bottom: calc(#{$gap} / 2);
   }
   .form-contact-us .form-footer .button-wrap {
     width: 100%;
