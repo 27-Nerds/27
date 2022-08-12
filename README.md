@@ -7,6 +7,7 @@ To run this project, install it locally using npm:
 
 ---
 
+## Development
 #### If you develop (live watcher), then use:
 ```npm run sass-dev```
 
