@@ -15,7 +15,8 @@ $gap: 48px;
 $section-padding: 90px;
 
 // Cursors
-$cursor-button: url(../images/icons/cursors/cursor.svg), auto;
+$cursor-default: url(../images/icons/cursors/cursor.svg), auto;
+$cursor-button: url(../images/icons/cursors/cursor_pointer.svg) 50 50, pointer;
 $cursor-more-pink: url(../images/icons/cursors/cursor_download_pink.svg), auto;
 $cursor-more-green: url(../images/icons/cursors/cursor_download_green.svg), auto;
 $cursor-text-input: url(../images/icons/cursors/cursor_text.svg), auto;

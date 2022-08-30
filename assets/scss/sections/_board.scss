@@ -26,6 +26,9 @@
     .on-hover {
       opacity: 1;
     }
+    .sticker {
+      opacity: 1;
+    }
   }
 }
 .board-list-item-image {
@@ -47,6 +50,18 @@
     width: 100%;
   }
 }
+
+.sticker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  opacity: 0;
+  transition: opacity $transition-duration $transition-timing-function;
+  transition-delay: 100ms;
+  will-change: opacity;
+}
+
 .board-list-item-name {
   //font-weight: 500;
   font-weight: 700;
