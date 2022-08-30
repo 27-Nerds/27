@@ -16,9 +16,11 @@ $section-padding: 90px;
 
 // Cursors
 $cursor-button: url(../images/icons/cursors/cursor.svg), auto;
-$cursor-more-pink: url(../images/icons/cursors/cursor_more_pink.svg), auto;
-$cursor-more-green: url(../images/icons/cursors/cursor_more_green.svg), auto;
-$cursor-text-input: url(../images/icons/cursors/cursor.svg), auto;
+$cursor-more-pink: url(../images/icons/cursors/cursor_download_pink.svg), auto;
+$cursor-more-green: url(../images/icons/cursors/cursor_download_green.svg), auto;
+$cursor-text-input: url(../images/icons/cursors/cursor_text.svg), auto;
+$cursor-drag: url(../images/icons/cursors/cursor_drag.svg), auto;
+$cursor-hold: url(../images/icons/cursors/cursor_hold.svg), auto;
 
 // Responsiveness
 $screen-laptop: 1619px;

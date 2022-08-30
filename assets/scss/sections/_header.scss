@@ -16,10 +16,14 @@
   }
 }
 .main-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  //display: flex;
+  //align-items: center;
+  //justify-content: space-between;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  align-items: center;
+  justify-content: center;
 }
 .logo-svg {
   height: 30px;
@@ -47,6 +51,7 @@
   display: none;
   padding: 0;
   margin: 0;
+  text-align: center;
   li {
     display: inline-block;
     vertical-align: top;

@@ -85,6 +85,10 @@
 
 .splide {
   position: relative;
+  cursor: $cursor-drag;
+  &:active {
+    cursor: $cursor-hold;
+  }
 }
 .splide__arrows {
   user-select: none;
