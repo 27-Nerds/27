@@ -429,6 +429,19 @@ canvas {
 
 #debug, #debug2 {
   position: absolute;
+  display: none;
+}
+
+.rabbit-spawned {
+  width: 47px;
+  height: 66px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: center center;
+  background-size: cover;
+  pointer-events: none;
+  background-image: url("../images/icons/rabbit.svg");
 }
 
 .above-the-clouds-section {

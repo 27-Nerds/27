@@ -686,8 +686,92 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Board carousel END Header scroll
 
+let rabbitsInitialized = false;
 window.onscroll = function () {
     stickyHeader();
+
+    if (window.pageYOffset > (document.querySelector(".rabbits-area").offsetTop - window.innerHeight + 100)) {
+        if (rabbitsInitialized === false) {
+            setTimeout(function () {
+                // module aliases
+                var Engine = Matter.Engine,
+                    Render = Matter.Render,
+                    Runner = Matter.Runner,
+                    Composite = Matter.Composite;
+
+                // create an engine
+                var engine = Engine.create();
+
+                let bWidth = document
+                    .querySelector('.rabbits-overlay')
+                    .offsetWidth;
+                let bHeight = document
+                    .querySelector('.rabbits-overlay')
+                    .offsetHeight;
+
+                var render = Render.create({
+                    element: document.getElementById("debug"),
+                    engine: engine,
+                    options: {
+                        width: bWidth,
+                        height: bHeight,
+                        background: '#fafafa',
+                        wireframeBackground: '#222',
+                        // hasBounds: false,
+                        hasBounds: true,
+                        enabled: true,
+                        wireframes: true,
+                        showSleeping: true,
+                        showDebug: false,
+                        showBroadphase: false,
+                        showBounds: false,
+                        showVelocity: true,
+                        showCollisions: false,
+                        showAxes: false,
+                        showPositions: false,
+                        showAngleIndicator: false,
+                        showIds: false,
+                        showShadows: false
+                    }
+                });
+
+                // run the renderer
+                Render.run(render);
+                // create runner
+                var runner = Runner.create();
+
+                // run the engine
+                Runner.run(runner, engine);
+
+                let shapes = [];
+                let x = 400;
+                let y = 0;
+
+                let world = new World(engine.world, bWidth, bHeight);
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(function () {
+                        x = getRandomInt(0, bWidth);
+                        world.addBunny(x, y);
+                    }, 100 * i);
+                }
+                document
+                    .querySelector('.rabbits-overlay')
+                    .addEventListener('click', event => {
+                        console.log(event);
+                        world.addBunny(event.layerX, event.layerY);
+                    });
+
+                update();
+
+                function update() {
+                    world.animate();
+                    window.requestAnimationFrame(update);
+                }
+
+            }, 1000);
+        }
+        rabbitsInitialized = true;
+    }
 };
 
 let header = document.querySelector(".header");
@@ -729,23 +813,7 @@ function Shape(x, y, world) {
 
 Shape.prototype.createElement = function () {
     this.element = document.createElement("div");
-    this.element.style.width = "" + this.getRealWidth() + "px";
-    this.element.style.height = "" + this.getRealHeight() + "px";
-    this.element.style.position = "absolute";
-    this.element.style.left = "0px";
-    this.element.style.top = "0px";
-    this
-        .element
-        .style["transform-origin"] = "center";
-    this
-        .element
-        .style["background-size"] = "cover";
-    this
-        .element
-        .style["pointer-events"] = "none";
-    this.element.style.backgroundImage = "url('https://raw.githubusercontent.com/27-Nerds/27/main/assets/images/icons/ra" +
-            "bbit.svg')";
-    // document.body.appendChild(this.element);
+    this.element.className = "rabbit-spawned";
     document
         .querySelector('.rabbits-overlay')
         .appendChild(this.element);
@@ -910,83 +978,5 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
-
-setTimeout(function () {
-    // module aliases
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Composite = Matter.Composite;
-
-    // create an engine
-    var engine = Engine.create();
-
-    let bWidth = document
-        .querySelector('.rabbits-overlay')
-        .offsetWidth;
-    let bHeight = document
-        .querySelector('.rabbits-overlay')
-        .offsetHeight;
-
-    var render = Render.create({
-        element: document.getElementById("debug"),
-        engine: engine,
-        options: {
-            width: bWidth,
-            height: bHeight,
-            background: '#fafafa',
-            wireframeBackground: '#222',
-            // hasBounds: false,
-            hasBounds: true,
-            enabled: true,
-            wireframes: true,
-            showSleeping: true,
-            showDebug: false,
-            showBroadphase: false,
-            showBounds: false,
-            showVelocity: true,
-            showCollisions: false,
-            showAxes: false,
-            showPositions: false,
-            showAngleIndicator: false,
-            showIds: false,
-            showShadows: false
-        }
-    });
-
-    // run the renderer
-    Render.run(render);
-    // create runner
-    var runner = Runner.create();
-
-    // run the engine
-    Runner.run(runner, engine);
-
-    let shapes = [];
-    let x = 400;
-    let y = 0;
-
-    let world = new World(engine.world, bWidth, bHeight);
-    for (let i = 0; i < 10; i++) {
-        setTimeout(function () {
-            x = getRandomInt(0, bWidth);
-            world.addBunny(x, y);
-        }, 100 * i);
-    }
-    document
-        .querySelector('.rabbits-overlay')
-        .addEventListener('click', event => {
-            console.log(event);
-            world.addBunny(event.layerX, event.layerY);
-        });
-
-    update();
-
-    function update() {
-        world.animate();
-        window.requestAnimationFrame(update);
-    }
-
-}, 1000);
 
 // Rabbits Physix END
