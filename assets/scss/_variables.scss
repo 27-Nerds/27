@@ -20,8 +20,8 @@ $cursor-button: url(../images/icons/cursors/cursor_pointer.svg) 50 50, pointer;
 $cursor-more-pink: url(../images/icons/cursors/cursor_download_pink.svg), auto;
 $cursor-more-green: url(../images/icons/cursors/cursor_download_green.svg), auto;
 $cursor-text-input: url(../images/icons/cursors/cursor_text.svg), auto;
-$cursor-drag: url(../images/icons/cursors/cursor_drag.svg), auto;
-$cursor-hold: url(../images/icons/cursors/cursor_hold.svg), auto;
+$cursor-drag: url(../images/icons/cursors/cursor_drag.svg) 50 50, auto;
+$cursor-hold: url(../images/icons/cursors/cursor_hold.svg) 50 50, auto;
 
 // Responsiveness
 $screen-laptop: 1619px;

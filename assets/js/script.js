@@ -980,3 +980,62 @@ function getRandomInt(min, max) {
 }
 
 // Rabbits Physix END
+
+
+// High five
+
+// const burst = new mojs.Burst({
+//     left: -10, top: -70,
+//     degree:     -60,
+//     angle:    90,
+//     radius:   { 10: 40 },
+//     count:    3,
+//     children: {
+//         shape:        'line',
+//         radius:       7,
+//         radiusY:      0,
+//         scale:        2,
+//         strokeDasharray: '100%',
+//         strokeDashoffset: { '-100%' : '100%' },
+//         stroke:       '#000' ,
+//         easing:       'linear.none',
+//         duration:     600
+//     }
+// });
+//
+// document.querySelector('.high-five').addEventListener( 'click', function (e) {
+//     burst
+//         .tune({ x: 130, y: e.pageY })
+//         .replay();
+// } );
+
+// new MojsPlayer({ add: burst, isPlaying: true, isRepeat: true });
+
+const highfive = document.getElementById("highfive");
+function playAudio() {
+    highfive.play();
+}
+function pauseAudio() {
+    highfive.pause();
+}
+
+let highFives = document.querySelectorAll('.high-five');
+for (let i = 0; i < highFives.length; i++) {
+    highFives[i].addEventListener( 'click', function (e) {
+        if (highFives[i].classList.contains('animating')) {
+            playAudio();
+            highFives[i].classList.remove('animating');
+            highFives[i].classList.add('animating');
+        } else {
+            playAudio();
+            highFives[i].classList.add('animating');
+        }
+        setTimeout(() => {
+            highFives[i].classList.remove('animating');
+        }, 300);
+    });
+}
+
+// document.querySelector('.high-five')
+
+// High five END

@@ -151,10 +151,10 @@ a {
 }
 
 .draggable {
-  cursor: url(../images/icons/cursors/cursor_drag.svg), auto;
+  cursor: url(../images/icons/cursors/cursor_drag.svg) 50 50, auto;
 }
 .draggable:active {
-  cursor: url(../images/icons/cursors/cursor_hold.svg), auto;
+  cursor: url(../images/icons/cursors/cursor_hold.svg) 50 50, auto;
 }
 
 .form {
@@ -1578,6 +1578,9 @@ canvas {
 .board-list-item:hover .on-hover, .board-list-item:focus .on-hover {
   opacity: 1;
 }
+.board-list-item:hover .high-five, .board-list-item:focus .high-five {
+  opacity: 1;
+}
 .board-list-item:hover .sticker, .board-list-item:focus .sticker {
   opacity: 1;
 }
@@ -1647,10 +1650,10 @@ canvas {
 
 .splide {
   position: relative;
-  cursor: url(../images/icons/cursors/cursor_drag.svg), auto;
+  cursor: url(../images/icons/cursors/cursor_drag.svg) 50 50, auto;
 }
 .splide:active {
-  cursor: url(../images/icons/cursors/cursor_hold.svg), auto;
+  cursor: url(../images/icons/cursors/cursor_hold.svg) 50 50, auto;
 }
 
 .splide__arrows {
@@ -1658,6 +1661,7 @@ canvas {
   position: absolute;
   right: 0;
   top: -157px;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
 }
 
 .splide__arrow {
@@ -1686,10 +1690,90 @@ canvas {
 }
 .splide__arrow:disabled {
   background-color: #5A5A5A;
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
 }
 .splide__arrow .icon {
   width: 21px;
   height: 35px;
+}
+
+.high-five {
+  position: absolute;
+  left: 10px;
+  top: 60px;
+  opacity: 0;
+  transition: opacity 270ms ease;
+  will-change: opacity;
+}
+.high-five .hand-icon {
+  display: block;
+  width: 100px;
+  height: 100px;
+  transition: transform 100ms ease-in-out;
+  will-change: transform;
+}
+.high-five .dashes-icon {
+  position: absolute;
+  left: -36px;
+  top: -73px;
+  transform: scale(0.6) rotate(0deg);
+}
+.high-five .dashes-icon line {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+.high-five .high-five-circle {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgba(214, 154, 245, 0.3);
+  width: 250px;
+  height: 250px;
+  border-radius: 250px;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 200ms;
+  animation-fill-mode: forwards;
+  will-change: transform;
+}
+.high-five:hover .hand-icon {
+  transform: rotate(10deg);
+}
+.high-five.animating {
+  cursor: url(../images/icons/cursors/cursor_drag.svg) 50 50, auto;
+}
+.high-five.animating .dashes-icon line {
+  animation-name: dashes;
+}
+.high-five.animating .high-five-circle {
+  animation-name: circle;
+}
+
+@keyframes dashes {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes circle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+#highfive {
+  display: none;
 }
 
 @media screen and (max-width: 1619px) {
@@ -1700,6 +1784,10 @@ canvas {
   .board-list-item-position {
     font-size: 24px;
     line-height: 36px;
+  }
+  .high-five {
+    left: 0px;
+    top: 30px;
   }
 }
 @media screen and (max-width: 520px) {
