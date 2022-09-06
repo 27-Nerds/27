@@ -2118,6 +2118,8 @@ canvas {
   margin: 0;
   column-count: 2;
   column-gap: 20px;
+  position: relative;
+  z-index: 9999;
 }
 .list-social li {
   display: block;
