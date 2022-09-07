@@ -35,6 +35,8 @@
   margin: 0;
   column-count: 2;
   column-gap: 20px;
+  position: relative;
+  z-index: 1;
   li {
     display: block;
     padding: 0;

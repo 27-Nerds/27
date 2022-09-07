@@ -562,8 +562,15 @@ canvas {
 .zoom-elements {
   transform-origin: center;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+@media screen and (min-width: 1921px) {
+  .zoom-elements {
+    width: 1920px;
+  }
+}
 .cloud, .snake, .rabbit, .coin {
   position: absolute;
 }
@@ -893,7 +900,7 @@ canvas {
   display: block;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 .esports-images li {
   display: block;
@@ -902,6 +909,14 @@ canvas {
   position: absolute;
 }
 
+@media screen and (min-width: 1921px) {
+  .esports-images {
+    position: relative;
+    height: 100%;
+    width: 1920px;
+    top: -100%;
+  }
+}
 @media screen and (max-width: 1619px) {
   .esports-text {
     font-size: 52px;
@@ -983,6 +998,9 @@ canvas {
   transition: transform 810ms ease, opacity 810ms ease;
 }
 
+.logo {
+  cursor: url(../images/icons/cursors/cursor.svg), auto;
+}
 .logo:hover .logo-glasses, .logo:focus .logo-glasses {
   opacity: 1;
   transform: translateY(0px);
@@ -1617,7 +1635,7 @@ canvas {
 
 .board-list-item-name {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 42px;
   padding: 0;
   margin: 40px 0 8px 0;
@@ -1628,7 +1646,7 @@ canvas {
   position: absolute;
   z-index: 1;
   bottom: 32px;
-  left: 10px;
+  left: 0;
 }
 
 .board-list-item-name--outlined {
@@ -1644,7 +1662,7 @@ canvas {
   color: #fff;
   position: absolute;
   bottom: 0;
-  left: 10px;
+  left: 0;
   z-index: 1;
 }
 
@@ -1778,7 +1796,7 @@ canvas {
 
 @media screen and (max-width: 1619px) {
   .board-list-item-name {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 40px;
   }
   .board-list-item-position {
@@ -1786,13 +1804,13 @@ canvas {
     line-height: 36px;
   }
   .high-five {
-    left: 0px;
+    left: 0;
     top: 30px;
   }
 }
 @media screen and (max-width: 520px) {
   .board-list-item-name {
-    font-size: 22px;
+    font-size: 21px;
     line-height: 26px;
     letter-spacing: 1px;
   }
@@ -2119,7 +2137,7 @@ canvas {
   column-count: 2;
   column-gap: 20px;
   position: relative;
-  z-index: 9999;
+  z-index: 1;
 }
 .list-social li {
   display: block;

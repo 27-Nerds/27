@@ -110,6 +110,13 @@
 .zoom-elements {
   transform-origin: center;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and ( min-width: 1921px ) {
+  .zoom-elements {
+    width: 1920px;
+  }
 }
 
 // Parallax elements base

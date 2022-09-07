@@ -8,9 +8,39 @@ for (let i = 0; i < draggableElems.length; i++) {
     draggies.push(draggie);
 }
 
-// Draggable END Zoom for scalable parallaxes
+// Draggable END
+
+
+var Engine, Render, Runner, Composite;
+var engine, render, world, runner;
+
+function update() {
+    world.animate();
+    window.requestAnimationFrame(update);
+}
 
 window.addEventListener('resize', function (event) {
+
+    // console.log('render', render);
+    // console.log('world', world);
+    //
+    // render.bounds.max.x = window.innerWidth;
+    // render.bounds.max.y = window.innerHeight;
+    // render.options.width = window.innerWidth;
+    // render.options.height = window.innerHeight;
+    //
+    // world.boundsX = window.innerWidth;
+    // world.boundsY = window.innerHeight;
+    //
+    // // Render.run(render);
+    // // Runner.run(runner, engine);
+    // update();
+
+    // if (window.innerWidth > 1920) {
+    //     document.querySelector('.zoom-elements').style.transform = 'scale(' + window.innerWidth / 1920 + ')';
+    // }
+
+
     // let draggableElems = document.querySelectorAll('.zoom-elements'); let
     // draggies = [] for ( let i=0; i < draggableElems.length; i++ ) { 	let
     // draggableElem = draggableElems[i]; 	draggableElem.style.transform = 'scale('
@@ -687,90 +717,99 @@ document.addEventListener('DOMContentLoaded', function () {
 // Board carousel END Header scroll
 
 let rabbitsInitialized = false;
+
+function initRabbits() {
+    if (rabbitsInitialized === false) {
+        setTimeout(function () {
+            // module aliases
+            // var Engine = Matter.Engine,
+                Engine = Matter.Engine,
+                Render = Matter.Render,
+                Runner = Matter.Runner,
+                Composite = Matter.Composite;
+
+            // create an engine
+            engine = Engine.create();
+
+            let bWidth = document
+                .querySelector('.rabbits-overlay')
+                .offsetWidth;
+            let bHeight = document
+                .querySelector('.rabbits-overlay')
+                .offsetHeight;
+
+            // var render = Render.create({
+            render = Render.create({
+                element: document.getElementById("debug"),
+                engine: engine,
+                options: {
+                    width: bWidth,
+                    height: bHeight,
+                    background: '#fafafa',
+                    wireframeBackground: '#222',
+                    // hasBounds: false,
+                    hasBounds: true,
+                    enabled: true,
+                    wireframes: true,
+                    showSleeping: true,
+                    showDebug: false,
+                    showBroadphase: false,
+                    showBounds: false,
+                    showVelocity: true,
+                    showCollisions: false,
+                    showAxes: false,
+                    showPositions: false,
+                    showAngleIndicator: false,
+                    showIds: false,
+                    showShadows: false
+                }
+            });
+
+            // run the renderer
+            Render.run(render);
+            // create runner
+            runner = Runner.create();
+
+            // run the engine
+            Runner.run(runner, engine);
+
+            let shapes = [];
+            let x = 400;
+            let y = 0;
+
+            // let world = new World(engine.world, bWidth, bHeight);
+            world = new World(engine.world, bWidth, bHeight);
+            for (let i = 0; i < 10; i++) {
+                setTimeout(function () {
+                    x = getRandomInt(0, bWidth);
+                    world.addBunny(x, y);
+                }, 100 * i);
+            }
+            document
+                .querySelector('.rabbits-overlay')
+                .addEventListener('click', event => {
+                    // console.log(event);
+                    world.addBunny(event.layerX, event.layerY);
+                });
+
+            update();
+
+            // function update() {
+            //     world.animate();
+            //     window.requestAnimationFrame(update);
+            // }
+
+        }, 1000);
+    }
+    rabbitsInitialized = true;
+}
+
+
 window.onscroll = function () {
     stickyHeader();
 
     if (window.pageYOffset > (document.querySelector(".rabbits-area").offsetTop - window.innerHeight + 100)) {
-        if (rabbitsInitialized === false) {
-            setTimeout(function () {
-                // module aliases
-                var Engine = Matter.Engine,
-                    Render = Matter.Render,
-                    Runner = Matter.Runner,
-                    Composite = Matter.Composite;
-
-                // create an engine
-                var engine = Engine.create();
-
-                let bWidth = document
-                    .querySelector('.rabbits-overlay')
-                    .offsetWidth;
-                let bHeight = document
-                    .querySelector('.rabbits-overlay')
-                    .offsetHeight;
-
-                var render = Render.create({
-                    element: document.getElementById("debug"),
-                    engine: engine,
-                    options: {
-                        width: bWidth,
-                        height: bHeight,
-                        background: '#fafafa',
-                        wireframeBackground: '#222',
-                        // hasBounds: false,
-                        hasBounds: true,
-                        enabled: true,
-                        wireframes: true,
-                        showSleeping: true,
-                        showDebug: false,
-                        showBroadphase: false,
-                        showBounds: false,
-                        showVelocity: true,
-                        showCollisions: false,
-                        showAxes: false,
-                        showPositions: false,
-                        showAngleIndicator: false,
-                        showIds: false,
-                        showShadows: false
-                    }
-                });
-
-                // run the renderer
-                Render.run(render);
-                // create runner
-                var runner = Runner.create();
-
-                // run the engine
-                Runner.run(runner, engine);
-
-                let shapes = [];
-                let x = 400;
-                let y = 0;
-
-                let world = new World(engine.world, bWidth, bHeight);
-                for (let i = 0; i < 10; i++) {
-                    setTimeout(function () {
-                        x = getRandomInt(0, bWidth);
-                        world.addBunny(x, y);
-                    }, 100 * i);
-                }
-                document
-                    .querySelector('.rabbits-overlay')
-                    .addEventListener('click', event => {
-                        console.log(event);
-                        world.addBunny(event.layerX, event.layerY);
-                    });
-
-                update();
-
-                function update() {
-                    world.animate();
-                    window.requestAnimationFrame(update);
-                }
-
-            }, 1000);
-        }
-        rabbitsInitialized = true;
+        initRabbits();
     }
 };
 
