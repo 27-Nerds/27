@@ -1,5 +1,6 @@
 .rabbits-area {
   position: relative;
+  cursor: $cursor-click;
   &:after {
     content: '';
     display: none;

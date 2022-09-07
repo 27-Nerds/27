@@ -386,6 +386,7 @@ a {
 }
 .rabbits-area {
   position: relative;
+  cursor: url(../images/icons/cursors/cursor_click.svg) 27 50, auto;
 }
 .rabbits-area:after {
   content: "";
@@ -999,7 +1000,7 @@ canvas {
 }
 
 .logo {
-  cursor: url(../images/icons/cursors/cursor.svg), auto;
+  cursor: url(../images/icons/cursors/cursor_boss.svg) 50 10, auto;
 }
 .logo:hover .logo-glasses, .logo:focus .logo-glasses {
   opacity: 1;

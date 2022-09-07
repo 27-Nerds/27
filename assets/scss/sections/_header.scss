@@ -36,7 +36,7 @@
   transition: transform $transition-duration * 3 $transition-timing-function, opacity $transition-duration * 3 $transition-timing-function;
 }
 .logo {
-  cursor: $cursor-default;
+  cursor: $cursor-boss;
   &:hover, &:focus {
     .logo-glasses {
       opacity: 1;
