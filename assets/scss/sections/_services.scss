@@ -1,10 +1,11 @@
 .services {
   padding-top: $section-padding;
   padding-bottom: $section-padding;
-  background-image: url(../images/background_1.jpg);
-  background-repeat: no-repeat;
+  background-image: url(../images/backgrounds/background_1.jpg);
+  background-repeat: repeat-x;
   background-position: top center;
-  background-size: 100% 75%;
+  //background-size: 100% 75%;
+  background-size: auto 100%;
 }
 
 .services-list {

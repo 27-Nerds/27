@@ -19,32 +19,27 @@ function update() {
     window.requestAnimationFrame(update);
 }
 
+function resizedw(){
+    // world.shapes = [];
+    Engine.clear(engine);
+    Render.stop(render);
+    Runner.stop(runner);
+    rabbitsInitialized = false;
+
+    let spawnedRabbits = document.querySelectorAll('.rabbit-spawned');
+    for (let i = 0; i < spawnedRabbits.length; i++) {
+        spawnedRabbits[i].remove();
+    }
+
+    initRabbits();
+}
+
+var resizeTimeout;
+
 window.addEventListener('resize', function (event) {
 
-    // console.log('render', render);
-    // console.log('world', world);
-    //
-    // render.bounds.max.x = window.innerWidth;
-    // render.bounds.max.y = window.innerHeight;
-    // render.options.width = window.innerWidth;
-    // render.options.height = window.innerHeight;
-    //
-    // world.boundsX = window.innerWidth;
-    // world.boundsY = window.innerHeight;
-    //
-    // // Render.run(render);
-    // // Runner.run(runner, engine);
-    // update();
-
-    // if (window.innerWidth > 1920) {
-    //     document.querySelector('.zoom-elements').style.transform = 'scale(' + window.innerWidth / 1920 + ')';
-    // }
-
-
-    // let draggableElems = document.querySelectorAll('.zoom-elements'); let
-    // draggies = [] for ( let i=0; i < draggableElems.length; i++ ) { 	let
-    // draggableElem = draggableElems[i]; 	draggableElem.style.transform = 'scale('
-    // + event.target.innerWidth / 1920 + ')'; }
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizedw, 100);
 
     if (window.innerWidth < 1200 && window.innerWidth > 520) {
         lax.removeElements(".page-title");
@@ -785,12 +780,12 @@ function initRabbits() {
                     world.addBunny(x, y);
                 }, 100 * i);
             }
-            document
-                .querySelector('.rabbits-overlay')
-                .addEventListener('click', event => {
-                    // console.log(event);
-                    world.addBunny(event.layerX, event.layerY);
-                });
+            // document
+            //     .querySelector('.rabbits-overlay')
+            //     .addEventListener('click', event => {
+            //         // console.log(event);
+            //         world.addBunny(event.layerX, event.layerY);
+            //     });
 
             update();
 
@@ -803,6 +798,13 @@ function initRabbits() {
     }
     rabbitsInitialized = true;
 }
+
+document
+    .querySelector('.rabbits-overlay')
+    .addEventListener('click', event => {
+        // console.log(event);
+        world.addBunny(event.layerX, event.layerY);
+    });
 
 
 window.onscroll = function () {
@@ -1054,10 +1056,6 @@ const highfive = document.getElementById("highfive");
 function playAudio() {
     highfive.play();
 }
-function pauseAudio() {
-    highfive.pause();
-}
-
 let highFives = document.querySelectorAll('.high-five');
 for (let i = 0; i < highFives.length; i++) {
     highFives[i].addEventListener( 'click', function (e) {

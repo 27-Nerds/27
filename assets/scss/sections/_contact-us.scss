@@ -8,7 +8,7 @@
   align-items: center;
   background-image: url(../images/backgrounds/contact_us_background.jpg);
   background-repeat: repeat-x;
-  background-size: cover;
+  background-size: 35px 100%;
   &:before {
     content: '';
     display: block;
@@ -47,8 +47,10 @@
 
 .contact-us-section {
   position: relative;
-  background-image: url(../images/background_stay_with_us.jpg);
-  background-position: bottom center;
+  background-image: url(../images/backgrounds/background_stay_with_us.jpg);
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  background-size: 35px 100%;
   align-items: flex-start;
   //height: 1072px;
   height: 1200px;

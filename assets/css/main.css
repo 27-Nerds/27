@@ -835,8 +835,8 @@ canvas {
 
 .esports-section {
   background-image: url(../images/backgrounds/esports_background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 34px 100%;
+  background-repeat: repeat-x;
   background-attachment: fixed;
   height: 2160px;
   overflow: hidden;
@@ -1002,11 +1002,6 @@ canvas {
 .logo {
   cursor: url(../images/icons/cursors/cursor_boss.svg) 50 10, auto;
 }
-.logo:hover .logo-glasses, .logo:focus .logo-glasses {
-  opacity: 1;
-  transform: translateY(0px);
-}
-
 .main-links {
   list-style: none;
   display: none;
@@ -1195,10 +1190,10 @@ canvas {
 .services {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-image: url(../images/background_1.jpg);
-  background-repeat: no-repeat;
+  background-image: url(../images/backgrounds/background_1.jpg);
+  background-repeat: repeat-x;
   background-position: top center;
-  background-size: 100% 75%;
+  background-size: auto 100%;
 }
 
 .services-list {
@@ -2083,10 +2078,10 @@ canvas {
 .stay-tuned {
   padding-top: 350px;
   padding-bottom: 210px;
-  background-image: url(../images/background_stay_with_us.jpg);
+  background-image: url(../images/backgrounds/background_stay_with_us.jpg);
   background-repeat: repeat-x;
-  background-position: bottom center;
-  background-size: cover;
+  background-position: -5px 0;
+  background-size: 35px 100%;
 }
 
 .form-stay-tuned .form-content {
@@ -2106,10 +2101,10 @@ canvas {
 }
 
 .footer {
-  background-image: url(../images/background_footer.jpg);
+  background-image: url(../images/backgrounds/background_footer.jpg);
   background-repeat: repeat-x;
   background-position: top center;
-  background-size: cover;
+  background-size: auto 100%;
   overflow: visible;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -2316,7 +2311,7 @@ canvas {
   align-items: center;
   background-image: url(../images/backgrounds/contact_us_background.jpg);
   background-repeat: repeat-x;
-  background-size: cover;
+  background-size: 35px 100%;
 }
 .contact-us:before {
   content: "";
@@ -2350,8 +2345,10 @@ canvas {
 
 .contact-us-section {
   position: relative;
-  background-image: url(../images/background_stay_with_us.jpg);
-  background-position: bottom center;
+  background-image: url(../images/backgrounds/background_stay_with_us.jpg);
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  background-size: 35px 100%;
   align-items: flex-start;
   height: 1200px;
 }
